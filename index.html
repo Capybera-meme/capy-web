@@ -13,15 +13,18 @@ content="CAPY — No stress. No drama. Just $CAPY.">
 href="https://i.ibb.co/QFfhRnbS/capy-logo.png">
 
 <style>
+
 :root{
-  --bg:#06100a;
-  --card:#0b1b12;
-  --card2:#0e2417;
-  --green:#63e77d;
-  --green2:#9affaa;
-  --text:#ffffff;
-  --muted:#91a397;
-  --border:#1c432b;
+  --bg:#100b08;
+  --bg2:#1b110c;
+  --card:#241710;
+  --cream:#f5ead7;
+  --muted:#b9a995;
+  --gold:#d9a441;
+  --gold2:#f0c76b;
+  --green:#57d98b;
+  --red:#ef6262;
+  --border:rgba(245,234,215,.12);
 }
 
 *{
@@ -37,405 +40,642 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at 50% 0%,#123b20 0%,var(--bg) 35%);
-  color:var(--text);
-  min-height:100vh;
+  radial-gradient(circle at 50% -10%,rgba(217,164,65,.16),transparent 35%),
+  var(--bg);
+  color:var(--cream);
+  line-height:1.6;
 }
 
-/* NAVIGATION */
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-header{
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(6,16,10,.90);
-  backdrop-filter:blur(15px);
+  z-index:20;
+  backdrop-filter:blur(14px);
+  background:rgba(16,11,8,.85);
   border-bottom:1px solid var(--border);
 }
 
-.nav{
-  max-width:1150px;
-  margin:auto;
-  padding:13px 20px;
+.nav-inner{
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
   gap:10px;
-  font-size:22px;
-  font-weight:800;
+  font-weight:900;
 }
 
-.logo img{
-  width:43px;
-  height:43px;
+.brand img{
+  width:42px;
+  height:42px;
   border-radius:50%;
 }
 
 .nav-links{
   display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  color:#d9e7dd;
-  text-decoration:none;
-  font-size:14px;
+  gap:22px;
+  color:var(--muted);
 }
 
 .nav-links a:hover{
-  color:var(--green);
+  color:var(--cream);
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
+  min-height:720px;
+  display:flex;
+  align-items:center;
   text-align:center;
-  padding:70px 20px 45px;
 }
 
-.hero-logo{
-  width:145px;
-  height:145px;
+.hero-content{
+  max-width:800px;
+  margin:auto;
+}
+
+.logo{
+  width:150px;
+  height:150px;
+  object-fit:cover;
   border-radius:50%;
   box-shadow:
-    0 0 25px rgba(99,231,125,.25),
-    0 0 70px rgba(99,231,125,.15);
+  0 0 0 8px rgba(217,164,65,.08),
+  0 25px 70px rgba(0,0,0,.5);
+  margin-bottom:25px;
 }
 
-.hero h1{
-  font-size:56px;
-  line-height:1.05;
-  margin-top:25px;
-  font-weight:900;
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  color:var(--gold2);
+  background:rgba(217,164,65,.07);
+  font-size:13px;
+  margin-bottom:18px;
 }
 
-.green{
-  color:var(--green);
+h1{
+  font-size:clamp(45px,8vw,82px);
+  line-height:1;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
+
+h1 span{
+  color:var(--gold2);
 }
 
 .hero p{
-  max-width:650px;
-  margin:20px auto;
   color:var(--muted);
+  max-width:650px;
+  margin:0 auto 30px;
   font-size:18px;
-  line-height:1.6;
 }
 
 .buttons{
   display:flex;
   justify-content:center;
-  align-items:center;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:28px;
 }
 
 .btn{
-  display:inline-block;
-  padding:15px 25px;
-  border-radius:13px;
-  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:150px;
+  padding:13px 20px;
+  border-radius:12px;
   font-weight:800;
+  border:1px solid var(--border);
   transition:.2s;
 }
 
-.buy{
-  background:var(--green);
-  color:#06100a;
-  box-shadow:0 8px 30px rgba(99,231,125,.18);
-}
-
-.buy:hover{
+.btn:hover{
   transform:translateY(-2px);
-  background:var(--green2);
 }
 
-.dark{
-  color:#fff;
-  border:1px solid var(--border);
-  background:#0a1910;
+.btn-primary{
+  background:var(--gold);
+  color:#171008;
 }
 
-.dark:hover{
-  border-color:var(--green);
-  color:var(--green);
+.btn-secondary{
+  background:var(--card);
+  color:var(--cream);
 }
 
-/* MAIN */
+/* =========================
+   SECTIONS
+========================= */
 
-.container{
-  width:100%;
-  max-width:1150px;
-  margin:auto;
-  padding:20px;
+section{
+  padding:85px 0;
 }
 
 .section-title{
-  font-size:30px;
-  margin:50px 0 18px;
+  text-align:center;
+  font-size:38px;
+  margin-bottom:14px;
 }
 
-/* MARKET */
+.section-subtitle{
+  text-align:center;
+  color:var(--muted);
+  max-width:650px;
+  margin:0 auto 42px;
+}
 
-.market-grid{
+/* =========================
+   CARDS
+========================= */
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
 .card{
-  background:linear-gradient(
-    145deg,
-    var(--card),
-    #08150d
-  );
+  background:linear-gradient(145deg,var(--card),var(--bg2));
   border:1px solid var(--border);
-  border-radius:18px;
-  padding:23px;
+  border-radius:20px;
+  padding:28px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
 }
 
-.card-title{
+.card h3{
+  margin-bottom:9px;
+  font-size:21px;
+}
+
+.card p{
   color:var(--muted);
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:12px;
 }
 
-.value{
-  font-size:28px;
-  font-weight:900;
+.icon{
+  font-size:30px;
+  margin-bottom:14px;
 }
 
-.price{
-  color:var(--green);
+/* =========================
+   LIVE DASHBOARD
+========================= */
+
+.live-section{
+  background:
+  linear-gradient(
+    180deg,
+    transparent,
+    rgba(217,164,65,.045),
+    transparent
+  );
 }
 
-/* LIVE STATUS */
-
-.live-status{
+.live-header{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
-  margin-top:16px;
-  color:#c9d6cd;
-  font-size:14px;
+  gap:10px;
+  margin-bottom:10px;
 }
 
 .live-dot{
-  width:9px;
-  height:9px;
-  background:#ff3b3b;
+  width:11px;
+  height:11px;
+  background:#ff4f4f;
   border-radius:50%;
-  box-shadow:0 0 12px #ff3b3b;
+  box-shadow:0 0 15px rgba(255,79,79,.7);
+  animation:pulse 1.3s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{
+    opacity:1;
+  }
+  50%{
+    opacity:.35;
+  }
+}
+
+/* STREAM */
+
+.stream-box{
+  min-height:390px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:#090706;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.stream-capy{
+  width:145px;
+  height:145px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:
+  0 0 0 7px rgba(217,164,65,.08),
+  0 20px 50px rgba(0,0,0,.6);
+}
+
+.stream-live{
+  margin-top:20px;
+  padding:8px 17px;
+  border-radius:999px;
+  background:#e94e4e;
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+}
+
+.stream-text{
+  margin-top:13px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* PRICE */
+
+.price-box{
+  min-height:390px;
+}
+
+.price-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.price-label{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.price{
+  font-size:36px;
+  font-weight:900;
+  margin-top:3px;
+}
+
+.change{
+  color:var(--green);
+  font-weight:800;
+  font-size:14px;
+}
+
+.demo-label{
+  display:inline-block;
+  font-size:10px;
+  padding:4px 7px;
+  border-radius:6px;
+  background:rgba(217,164,65,.1);
+  color:var(--gold2);
+  margin-top:6px;
 }
 
 /* CHART */
 
-.chart-box{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:15px;
-  min-height:420px;
-}
-
-.chart-placeholder{
-  min-height:390px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:var(--muted);
-}
-
-.chart-icon{
-  font-size:55px;
-  margin-bottom:10px;
-}
-
-/* VIDEO */
-
-.video-box{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:15px;
-}
-
-.video-header{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-bottom:14px;
-  font-weight:bold;
-}
-
-.video-dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#ff3030;
-  box-shadow:0 0 12px #ff3030;
-}
-
-.video-player{
+.chart{
+  height:235px;
   width:100%;
-  min-height:350px;
-  background:#000;
-  border-radius:13px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#718177;
-}
-
-.video-player video{
-  width:100%;
-  border-radius:13px;
-}
-
-/* CONTRACT */
-
-.contract-box{
-  background:var(--card);
+  background:#0e0907;
+  border-radius:14px;
   border:1px solid var(--border);
-  border-radius:18px;
+  overflow:hidden;
+}
+
+#priceChart{
+  width:100%;
+  height:100%;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:18px;
+}
+
+.stat{
+  background:linear-gradient(145deg,var(--card),var(--bg2));
+  border:1px solid var(--border);
+  border-radius:16px;
   padding:20px;
 }
 
-.contract-address{
-  margin-top:10px;
-  background:#06100a;
-  border:1px solid #183b26;
-  border-radius:12px;
-  padding:15px;
-  word-break:break-all;
-  color:#9db0a2;
-  font-family:monospace;
+.stat-title{
+  color:var(--muted);
   font-size:13px;
 }
 
-/* FOOTER */
+.stat-value{
+  margin-top:5px;
+  font-size:21px;
+  font-weight:900;
+  color:var(--cream);
+}
+
+/* TRADES */
+
+.trades{
+  margin-top:18px;
+}
+
+.trade-header{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  color:var(--muted);
+  font-size:12px;
+  padding:0 12px 9px;
+}
+
+.trade-list{
+  max-height:330px;
+  overflow:auto;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(0,0,0,.12);
+}
+
+.trade{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  padding:12px;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+
+.trade:last-child{
+  border-bottom:0;
+}
+
+.buy{
+  color:var(--green);
+  font-weight:900;
+}
+
+.sell{
+  color:var(--red);
+  font-weight:900;
+}
+
+.trade-amount{
+  color:var(--cream);
+}
+
+.trade-time{
+  color:var(--muted);
+  text-align:right;
+}
+
+/* CA */
+
+.ca-box{
+  margin-top:18px;
+  padding:22px;
+  background:linear-gradient(145deg,var(--card),var(--bg2));
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+.ca-title{
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.ca-description{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:13px;
+}
+
+.ca-row{
+  display:flex;
+  gap:10px;
+}
+
+.ca-input{
+  flex:1;
+  min-width:0;
+  padding:13px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#100b08;
+  color:var(--cream);
+  outline:none;
+}
+
+.ca-input:focus{
+  border-color:var(--gold);
+}
+
+.copy-btn{
+  border:0;
+  border-radius:10px;
+  padding:0 20px;
+  background:var(--gold);
+  color:#171008;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* =========================
+   RULES
+========================= */
+
+.rules{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.rule{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  text-align:center;
+}
+
+.rule strong{
+  display:block;
+  font-size:22px;
+  color:var(--gold2);
+  margin-bottom:5px;
+}
+
+.rule span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.trust-note{
+  margin-top:22px;
+  padding:16px 18px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  color:var(--muted);
+  background:rgba(245,234,215,.03);
+  font-size:14px;
+}
+
+/* =========================
+   COMMUNITY
+========================= */
+
+.community{
+  text-align:center;
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(217,164,65,.05)
+  );
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+  padding:35px 0;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
   text-align:center;
-  padding:55px 20px;
-  color:#718077;
 }
 
-.footer-title{
-  color:#fff;
-  font-weight:bold;
-  margin-bottom:8px;
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:14px;
+  color:var(--cream);
 }
 
-/* MOBILE */
+.footer-links a:hover{
+  color:var(--gold2);
+}
 
-@media(max-width:750px){
+/* =========================
+   MOBILE
+========================= */
 
-  .nav{
-    padding:11px 14px;
-  }
+@media(max-width:800px){
 
   .nav-links{
-    gap:9px;
-  }
-
-  .nav-links a{
-    font-size:12px;
+    display:none;
   }
 
   .hero{
-    padding-top:50px;
+    min-height:650px;
   }
 
-  .hero-logo{
-    width:120px;
-    height:120px;
-  }
-
-  .hero h1{
-    font-size:40px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .market-grid{
+  .grid,
+  .rules{
     grid-template-columns:1fr;
   }
 
-  .section-title{
-    font-size:25px;
+  .stats{
+    grid-template-columns:1fr 1fr;
   }
 
-  .chart-box{
-    min-height:320px;
+  section{
+    padding:65px 0;
   }
 
-  .chart-placeholder{
-    min-height:290px;
+  h1{
+    letter-spacing:-2px;
   }
 
-  .video-player{
-    min-height:250px;
-  }
 }
+
+@media(max-width:500px){
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .ca-row{
+    flex-direction:column;
+  }
+
+  .copy-btn{
+    min-height:45px;
+  }
+
+  .stream-box,
+  .price-box{
+    min-height:350px;
+  }
+
+}
+
 </style>
 </head>
 
-
 <body>
 
-
 <!-- =========================
-     NAVIGATION
+     NAVBAR
 ========================= -->
 
-<header>
+<nav>
 
-  <div class="nav">
+<div class="container nav-inner">
 
-    <div class="logo">
+<a class="brand" href="#">
+<img
+src="https://i.ibb.co/QFfhRnbS/capy-logo.png"
+alt="CAPY logo">
+<span>$CAPY</span>
+</a>
 
-      <img
-      src="https://i.ibb.co/QFfhRnbS/capy-logo.png"
-      alt="CAPY Logo">
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#live">Live</a>
+<a href="#rules">Rules</a>
+<a href="#trust">Transparency</a>
+<a href="#community">Community</a>
+</div>
 
-      <span>$CAPY</span>
+</div>
 
-    </div>
+</nav>
 
 
-    <div class="nav-links">
-
-      <a href="#market">Market</a>
-
-      <a href="#chart">Chart</a>
-
-      <a href="#live">Live</a>
-
-      <a
-      href="https://pump.fun/join/Capy_bera"
-      target="_blank"
-      rel="noopener">
-      Buy
-      </a>
-
-    </div>
-
-  </div>
-
-</header>
-
+<main>
 
 
 <!-- =========================
@@ -444,314 +684,581 @@ footer{
 
 <section class="hero">
 
-  <img
-  class="hero-logo"
-  src="https://i.ibb.co/QFfhRnbS/capy-logo.png"
-  alt="CAPY">
+<div class="container hero-content">
 
-  <h1>
-    The
-    <span class="green">Chillest</span>
-    <br>
-    Coin in Crypto
-  </h1>
+<img
+class="logo"
+src="https://i.ibb.co/QFfhRnbS/capy-logo.png"
+alt="Capybara logo">
 
-  <p>
-    No stress. No drama. Just $CAPY.
-    Welcome to the chillest corner of crypto.
-  </p>
+<div class="badge">
+🦫 NO STRESS • NO DRAMA • MAXIMUM VIBES
+</div>
 
+<h1>
+Meet <span>CAPY</span>
+</h1>
 
-  <div class="buttons">
+<p>
+The chillest animal in the world now has a coin.
+Stay calm, enjoy the memes, and bring maximum capybara energy to crypto.
+</p>
 
-    <!-- YOUR PUMP.FUN LINK -->
+<div class="buttons">
 
-    <a
-    class="btn buy"
-    href="https://pump.fun/join/Capy_bera"
-    target="_blank"
-    rel="noopener">
-    🛒 BUY $CAPY
-    </a>
+<a
+class="btn btn-primary"
+href="https://x.com/Capy_bera"
+target="_blank"
+rel="noopener">
+Follow on X
+</a>
 
+<a
+class="btn btn-secondary"
+href="https://t.me/capy_bera"
+target="_blank"
+rel="noopener">
+Join Telegram
+</a>
 
-    <a
-    class="btn dark"
-    href="#market">
-    📊 VIEW MARKET
-    </a>
+<!-- CAPY PUMP.FUN PROFILE -->
 
-  </div>
+<a
+class="btn btn-secondary"
+href="https://pump.fun/join/Capy_bera"
+target="_blank"
+rel="noopener">
+🐹 CAPY Profile
+</a>
 
+</div>
 
-  <div class="live-status">
-
-    <span class="live-dot"></span>
-
-    CAPY COMMUNITY IS LIVE
-
-  </div>
+</div>
 
 </section>
-
-
-
-<main class="container">
 
 
 <!-- =========================
-     MARKET
+     LIVE DASHBOARD
 ========================= -->
 
-<section id="market">
+<section id="live" class="live-section">
 
-  <h2 class="section-title">
-    📈 CAPY Market
-  </h2>
+<div class="container">
 
+<div class="live-header">
+<span class="live-dot"></span>
+<h2 class="section-title" style="margin:0">
+CAPY Live
+</h2>
+</div>
 
-  <div class="market-grid">
-
-
-    <div class="card">
-
-      <div class="card-title">
-        CAPY PRICE
-      </div>
-
-      <div
-      class="value price"
-      id="price">
-      Loading...
-      </div>
-
-    </div>
+<p class="section-subtitle">
+Watch CAPY and follow the market activity in one place.
+</p>
 
 
-    <div class="card">
-
-      <div class="card-title">
-        24H CHANGE
-      </div>
-
-      <div
-      class="value"
-      id="change">
-      --
-      </div>
-
-    </div>
+<div class="grid">
 
 
-    <div class="card">
+<!-- LIVE STREAM -->
 
-      <div class="card-title">
-        MARKET CAP
-      </div>
+<div class="card">
 
-      <div
-      class="value"
-      id="marketcap">
-      --
-      </div>
+<h3>🦫 Live Stream</h3>
 
-    </div>
+<div class="stream-box">
+
+<img
+class="stream-capy"
+src="https://i.ibb.co/QFfhRnbS/capy-logo.png"
+alt="CAPY Live">
+
+<div class="stream-live">
+● LIVE
+</div>
+
+<div class="stream-text">
+CAPY LIVE STREAM
+</div>
+
+</div>
+
+</div>
 
 
-  </div>
+<!-- PRICE -->
+
+<div class="card price-box">
+
+<div class="price-top">
+
+<div>
+
+<div class="price-label">
+CAPY PRICE
+</div>
+
+<div class="price" id="price">
+$0.000123
+</div>
+
+<div class="change" id="change">
++12.45% 24h
+</div>
+
+<div class="demo-label">
+DEMO DATA — CA NOT CONNECTED
+</div>
+
+</div>
+
+<div style="font-size:25px">
+📈
+</div>
+
+</div>
+
+
+<div class="chart">
+
+<canvas id="priceChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-title">
+Market Cap
+</div>
+
+<div class="stat-value">
+$123,456
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Liquidity
+</div>
+
+<div class="stat-value">
+$45,678
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+24h Volume
+</div>
+
+<div class="stat-value">
+$78,901
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Holders
+</div>
+
+<div class="stat-value">
+1,245
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TRADES -->
+
+<div class="card trades">
+
+<h3>
+⚡ Live Buys & Sells
+</h3>
+
+<p style="margin-bottom:16px">
+Demo activity until the CAPY contract address is connected.
+</p>
+
+<div class="trade-header">
+
+<span>TYPE</span>
+<span>AMOUNT</span>
+<span style="text-align:right">TIME</span>
+
+</div>
+
+<div class="trade-list" id="tradeList">
+
+<div class="trade">
+
+<span class="buy">
+BUY
+</span>
+
+<span class="trade-amount">
+0.82 SOL
+</span>
+
+<span class="trade-time">
+12 sec
+</span>
+
+</div>
+
+
+<div class="trade">
+
+<span class="sell">
+SELL
+</span>
+
+<span class="trade-amount">
+0.31 SOL
+</span>
+
+<span class="trade-time">
+24 sec
+</span>
+
+</div>
+
+
+<div class="trade">
+
+<span class="buy">
+BUY
+</span>
+
+<span class="trade-amount">
+1.20 SOL
+</span>
+
+<span class="trade-time">
+31 sec
+</span>
+
+</div>
+
+
+<div class="trade">
+
+<span class="buy">
+BUY
+</span>
+
+<span class="trade-amount">
+0.44 SOL
+</span>
+
+<span class="trade-time">
+42 sec
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONTRACT -->
+
+<div class="ca-box">
+
+<div class="ca-title">
+🔗 CAPY Contract Address
+</div>
+
+<div class="ca-description">
+CA will be added later. Once connected, this section can be linked to real market data.
+</div>
+
+<div class="ca-row">
+
+<input
+class="ca-input"
+id="caInput"
+placeholder="Paste CAPY Contract Address here">
+
+<button
+class="copy-btn"
+onclick="copyCA()">
+COPY
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
-
 
 
 <!-- =========================
-     CHART
+     ABOUT
 ========================= -->
 
-<section id="chart">
+<section id="about">
 
-  <h2 class="section-title">
-    📊 Live CAPY Chart
-  </h2>
+<div class="container">
+
+<h2 class="section-title">
+What is CAPY?
+</h2>
+
+<p class="section-subtitle">
+CAPY is a capybara-inspired meme coin built around a simple idea:
+stay calm, have fun, and enjoy the community.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">🦫</div>
+
+<h3>
+Maximum Chill
+</h3>
+
+<p>
+Capybaras are famous for staying relaxed while the world moves around them.
+CAPY brings that same energy to meme-coin culture.
+</p>
+
+</div>
 
 
-  <div class="chart-box">
+<div class="card">
 
-    <div class="chart-placeholder">
+<div class="icon">💎</div>
 
-      <div>
+<h3>
+Community Vibes
+</h3>
 
-        <div class="chart-icon">
-          📊
-        </div>
+<p>
+Share the memes, join the conversation and help build a recognizable
+capybara community around $CAPY.
+</p>
 
-        <h3>
-          CAPY LIVE CHART
-        </h3>
+</div>
 
-        <p style="margin-top:10px;">
-          Your live DEX chart can be connected here.
-        </p>
+</div>
 
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
-
 
 
 <!-- =========================
-     LIVE VIDEO
+     RULES
 ========================= -->
 
-<section id="live">
+<section id="rules">
 
-  <h2 class="section-title">
-    🔴 CAPY Live
-  </h2>
+<div class="container">
 
+<h2 class="section-title">
+Fair launch, locked rules
+</h2>
 
-  <div class="video-box">
+<p class="section-subtitle">
+The project states the following launch settings.
+Always verify token and launch information independently
+before making a transaction.
+</p>
 
+<div class="rules">
 
-    <div class="video-header">
+<div class="rule">
+<strong>2%</strong>
+<span>Max Creator Allocation</span>
+</div>
 
-      <span class="video-dot"></span>
+<div class="rule">
+<strong>Locked</strong>
+<span>Launch Rules</span>
+</div>
 
-      CAPY LIVE STREAM
+<div class="rule">
+<strong>Auto</strong>
+<span>Graduation</span>
+</div>
 
-    </div>
+<div class="rule">
+<strong>Fee Share</strong>
+<span>Creator Revenue</span>
+</div>
 
+</div>
 
-    <div class="video-player">
-
-      <!--
-      PUT YOUR MP4 VIDEO URL HERE.
-
-      Example:
-
-      <video controls autoplay muted loop playsinline>
-        <source
-        src="YOUR_VIDEO_URL.mp4"
-        type="video/mp4">
-      </video>
-      -->
-
-
-      <div>
-
-        <div style="font-size:55px;">
-          🐹
-        </div>
-
-        <p style="margin-top:10px;">
-          CAPY LIVE VIDEO
-        </p>
-
-        <small>
-          Add your video URL in the code.
-        </small>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
-
 
 
 <!-- =========================
-     BUY SECTION
+     TRUST
 ========================= -->
 
-<section>
+<section id="trust">
 
-  <h2 class="section-title">
-    🐹 Get $CAPY
-  </h2>
+<div class="container">
+
+<h2 class="section-title">
+Trust & Transparency
+</h2>
+
+<p class="section-subtitle">
+CAPY is built around simple, transparent launch principles.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+🔒 Locked Launch Rules
+</h3>
+
+<p>
+Launch rules are presented clearly so the community
+can review the stated setup.
+</p>
+
+</div>
 
 
-  <div class="card"
-  style="text-align:center;">
+<div class="card">
 
-    <h3 style="font-size:24px;">
-      Ready to chill?
-    </h3>
+<h3>
+📊 2% Max Creator Allocation
+</h3>
 
-    <p
-    style="
-    color:var(--muted);
-    margin:12px 0 20px;
-    ">
-      Visit the CAPY Pump.fun page.
-    </p>
+<p>
+The stated maximum creator allocation is 2%.
+</p>
+
+</div>
 
 
-    <a
-    class="btn buy"
-    href="https://pump.fun/join/Capy_bera"
-    target="_blank"
-    rel="noopener">
+<div class="card">
 
-    🚀 BUY $CAPY
+<h3>
+⚡ Automatic Graduation
+</h3>
 
-    </a>
+<p>
+The project states that graduation is automatic.
+</p>
 
-  </div>
+</div>
+
+
+<div class="card">
+
+<h3>
+💰 Creator Fee Share
+</h3>
+
+<p>
+The stated creator revenue model is fee share.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="trust-note">
+
+Always verify the token address, launch information,
+rules and transaction details independently before
+making any transaction.
+
+</div>
+
+</div>
 
 </section>
-
 
 
 <!-- =========================
-     CONTRACT
+     COMMUNITY
 ========================= -->
 
-<section>
+<section id="community" class="community">
 
-  <h2 class="section-title">
-    🪙 CAPY Contract
-  </h2>
+<div class="container">
 
+<h2 class="section-title">
+Join the Chill Zone
+</h2>
 
-  <div class="contract-box">
+<p class="section-subtitle">
+Follow CAPY, join the community and bring your best capybara energy.
+</p>
 
-    <p style="color:var(--muted);">
-      Official CAPY contract address
-    </p>
+<div class="buttons">
 
+<a
+class="btn btn-primary"
+href="https://x.com/Capy_bera"
+target="_blank"
+rel="noopener">
+𝕏 X / Twitter
+</a>
 
-    <div class="contract-address">
+<a
+class="btn btn-secondary"
+href="https://t.me/capy_bera"
+target="_blank"
+rel="noopener">
+✈ Telegram
+</a>
 
-      CONTRACT_ADDRESS_NOT_ADDED_YET
+<!-- CAPY PUMP.FUN PROFILE -->
 
-    </div>
+<a
+class="btn btn-secondary"
+href="https://pump.fun/join/Capy_bera"
+target="_blank"
+rel="noopener">
+🐹 CAPY Profile
+</a>
 
+</div>
 
-    <p
-    style="
-    color:#65766b;
-    font-size:12px;
-    margin-top:10px;
-    ">
-
-      Add the actual CAPY contract address here
-      once available.
-
-    </p>
-
-  </div>
+</div>
 
 </section>
-
 
 </main>
-
 
 
 <!-- =========================
@@ -760,83 +1267,246 @@ footer{
 
 <footer>
 
-  <div class="footer-title">
-    🐹 $CAPY
-  </div>
+<div class="container">
 
-  <p>
-    No stress. No drama. Just Capy.
-  </p>
+<div class="footer-links">
 
-  <p style="margin-top:12px;">
-    © 2026 CAPY
-  </p>
+<a
+href="https://x.com/Capy_bera"
+target="_blank"
+rel="noopener">
+X
+</a>
+
+<a
+href="https://t.me/capy_bera"
+target="_blank"
+rel="noopener">
+Telegram
+</a>
+
+<a
+href="https://pump.fun/join/Capy_bera"
+target="_blank"
+rel="noopener">
+CAPY Profile
+</a>
+
+</div>
+
+<p>
+CAPY is a meme coin presented for entertainment and
+community purposes. Nothing on this website is a promise
+of financial returns or investment performance.
+Always do your own research.
+</p>
+
+<p style="margin-top:10px;">
+© 2026 CAPY. All vibes reserved. 🦫
+</p>
+
+</div>
 
 </footer>
 
 
-
 <script>
 
-/* =================================
-   CAPY MARKET DATA
-================================= */
+/* =========================
+   DEMO PRICE CHART
+========================= */
 
-/*
-   Temporary demo values.
+const canvas =
+document.getElementById("priceChart");
 
-   Once you provide the actual
-   CAPY token contract address,
-   the live market API can be
-   connected here.
-*/
+const ctx =
+canvas.getContext("2d");
 
+let prices=[];
 
-const CAPY_DATA = {
+for(let i=0;i<45;i++){
+  prices.push(
+    100 + Math.random()*30
+  );
+}
 
-  price: "$0.00000000",
+function resizeCanvas(){
 
-  change: "+0.00%",
+  canvas.width =
+    canvas.parentElement.clientWidth;
 
-  marketcap: "$0"
-
-};
-
-
-
-function updateMarket(){
-
-  document.getElementById("price")
-  .textContent =
-  CAPY_DATA.price;
-
-
-  document.getElementById("change")
-  .textContent =
-  CAPY_DATA.change;
-
-
-  document.getElementById("marketcap")
-  .textContent =
-  CAPY_DATA.marketcap;
+  canvas.height =
+    canvas.parentElement.clientHeight;
 
 }
 
+function drawChart(){
 
-updateMarket();
+  resizeCanvas();
+
+  ctx.clearRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  const max =
+    Math.max(...prices);
+
+  const min =
+    Math.min(...prices);
+
+  ctx.beginPath();
+
+  prices.forEach((value,index)=>{
+
+    const x =
+      index/(prices.length-1)
+      *canvas.width;
+
+    const y =
+      canvas.height -
+      ((value-min)/(max-min))
+      *canvas.height*0.75
+      -20;
+
+    if(index===0){
+      ctx.moveTo(x,y);
+    }else{
+      ctx.lineTo(x,y);
+    }
+
+  });
+
+  ctx.strokeStyle =
+    "#d9a441";
+
+  ctx.lineWidth=3;
+
+  ctx.stroke();
+
+}
+
+drawChart();
 
 
-/*
-   Refresh every 10 seconds.
-*/
+/* Demo chart movement */
+
+setInterval(()=>{
+
+  prices.shift();
+
+  const last =
+    prices[prices.length-1];
+
+  prices.push(
+    last+(Math.random()-.45)*7
+  );
+
+  drawChart();
+
+},2000);
+
+
+/* =========================
+   DEMO LIVE TRADES
+========================= */
+
+const tradeList =
+document.getElementById("tradeList");
+
+function addTrade(){
+
+  const types=[
+    "BUY",
+    "BUY",
+    "BUY",
+    "SELL"
+  ];
+
+  const type =
+    types[
+      Math.floor(
+        Math.random()*types.length
+      )
+    ];
+
+  const amount =
+    (Math.random()*2)
+    .toFixed(2);
+
+  const trade =
+    document.createElement("div");
+
+  trade.className="trade";
+
+  trade.innerHTML=`
+
+    <span class="${
+      type==="BUY"
+      ? "buy"
+      : "sell"
+    }">
+      ${type}
+    </span>
+
+    <span class="trade-amount">
+      ${amount} SOL
+    </span>
+
+    <span class="trade-time">
+      now
+    </span>
+
+  `;
+
+  tradeList.prepend(trade);
+
+  if(tradeList.children.length>15){
+
+    tradeList.lastElementChild.remove();
+
+  }
+
+}
 
 setInterval(
-  updateMarket,
-  10000
+  addTrade,
+  3500
 );
 
-</script>
 
+/* =========================
+   COPY CONTRACT ADDRESS
+========================= */
+
+function copyCA(){
+
+  const input =
+    document.getElementById("caInput");
+
+  if(!input.value){
+
+    alert(
+      "CAPY Contract Address abhi add nahi kiya gaya."
+    );
+
+    return;
+
+  }
+
+  navigator.clipboard.writeText(
+    input.value
+  );
+
+  alert(
+    "Contract Address copied!"
+  );
+
+}
+
+</script>
 
 </body>
   </html>
